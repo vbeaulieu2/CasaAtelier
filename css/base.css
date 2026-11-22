@@ -280,16 +280,27 @@ p { margin: 0 0 1em; }
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
 }
 .brand {
-  display: inline-flex; flex-direction: column; align-items: center; gap: 3px;
+  display: inline-flex; align-items: center; gap: 12px;
   text-decoration: none; color: var(--ink); line-height: 1;
 }
-.brand__word {
-  font-family: var(--f-display); font-weight: 700; font-size: 30px;
-  letter-spacing: -0.035em; line-height: .78; color: var(--tangerine);
+/* Tuile monogramme CA/SA (logo retenu) */
+.brand__tile {
+  width: 46px; height: 46px; flex: none;
+  border-radius: 9px;
+  background: var(--forest); color: var(--paper);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-family: var(--f-display); font-weight: 800; font-size: 19px;
+  line-height: .86; letter-spacing: -0.06em;
+  transition: transform .4s var(--ease), background .3s;
 }
-.brand__sub {
-  font-family: var(--f-body); font-weight: 600; font-size: 9px;
-  letter-spacing: .62em; margin-right: -.62em; text-transform: uppercase; color: var(--ink);
+.brand__tile span { display: block; margin-right: .06em; }
+.brand:hover .brand__tile { transform: rotate(-4deg); background: var(--tangerine); }
+.brand__text { display: flex; flex-direction: column; gap: 3px; }
+.brand__name { font-family: var(--f-display); font-weight: 600; font-size: 22px; letter-spacing: -0.01em; color: var(--ink); }
+.brand__tag { font-family: var(--f-display); font-style: italic; font-size: 12px; color: var(--tangerine); }
+@media (max-width: 380px) {
+  .brand__name { font-size: 19px; }
+  .brand__tile { width: 42px; height: 42px; font-size: 17px; }
 }
 
 /* Logo complet : casa / ATELIER / filet / signature */
@@ -297,6 +308,11 @@ p { margin: 0 0 1em; }
 .lockup__word { font-family: var(--f-display); font-weight: 700; font-size: clamp(4rem, 3rem + 4vw, 6.5rem); letter-spacing: -0.04em; line-height: .78; }
 .lockup__sub { font-family: var(--f-body); font-weight: 500; font-size: clamp(.8rem, .7rem + .4vw, 1rem); letter-spacing: .7em; margin-right: -.7em; text-transform: uppercase; margin-top: 14px; }
 .lockup__rule { width: 64px; height: 1px; background: currentColor; opacity: .6; margin: 16px 0 12px; }
+.lockup { align-items: flex-start; text-align: left; text-decoration: none; }
+.lockup__mono { display: flex; align-items: center; gap: 16px; }
+.lockup__vert { writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--f-body); font-weight: 600; font-size: 12px; letter-spacing: .45em; text-transform: uppercase; }
+.lockup__ca { font-family: var(--f-display); font-weight: 800; font-size: clamp(4rem, 3rem + 3vw, 5.5rem); line-height: .82; letter-spacing: -0.05em; }
+.lockup .lockup__tag { margin-top: 18px; }
 .lockup__tag { font-family: var(--f-display); font-style: italic; font-size: clamp(.95rem, .85rem + .4vw, 1.15rem); opacity: .9; }
 
 .nav__links { display: flex; align-items: center; gap: 4px; list-style: none; margin: 0; padding: 0; }
