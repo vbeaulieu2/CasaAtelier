@@ -254,3 +254,39 @@ input[type="range"].range {
 .final__phone a { color: var(--paper); }
 .final__burst { position: absolute; left: 6%; top: 18%; --size: 96px; }
 @media (max-width: 700px) { .final__burst { display: none; } }
+
+/* ===== Harmonisation avec le logo ===== */
+.marquee { background: var(--forest); color: var(--paper); border-block: 0; }
+.marquee__track span { font-weight: 400; }
+.marquee__track span::after { content: ""; width: 7px; height: 7px; border-radius: 2px; background: var(--tangerine); }
+
+.hero h1 .ul { background-image: linear-gradient(var(--tangerine), var(--tangerine)); background-size: 100% .06em; background-position: 0 92%; }
+.hero__plate { background:
+    linear-gradient(rgba(31,43,36,.07) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, rgba(31,43,36,.07) 1px, transparent 1px) 0 0 / 24px 24px,
+    var(--paper-2); }
+.hero__side { position: absolute; left: -30px; top: 50%; transform: translateY(-50%) rotate(180deg); }
+@media (max-width: 1100px) { .hero__side { display: none; } }
+.hero__facts strong { font-weight: 700; }
+
+.service { border-radius: 14px; }
+.service--b { background: var(--tangerine); color: var(--paper); }
+.service--b .service__art svg path[fill="#fbf7f0"], .service--b .service__art svg rect[fill="#fbf7f0"] { fill: var(--paper); }
+.service--b:hover .service__go { background: var(--paper); color: var(--tangerine); border-color: var(--paper); }
+.service--c { background: var(--forest); }
+.service__num { font-style: normal; font-weight: 800; font-size: 56px; letter-spacing: -0.04em; }
+
+.seg button { border-radius: 8px; }
+.seg button[aria-pressed="true"] { background: var(--paper); color: var(--forest); border-color: var(--paper); }
+.sun__stage { border-radius: 14px; }
+.sun__readout { border-radius: 12px; }
+
+.step__n { font-style: normal; font-weight: 800; letter-spacing: -0.04em; color: var(--forest); }
+.steps { border-top-color: var(--forest); }
+.faq__list { border-top-color: var(--forest); }
+.faq details[open] .plus { background: var(--forest); border-color: var(--forest); }
+.faq details[open] .plus::before, .faq details[open] .plus::after { background: var(--paper); }
+.faq summary .plus { border-radius: 8px; }
+
+.final h2 em { color: var(--mustard); }
+.final__burst { --size: 104px; }

@@ -422,3 +422,79 @@ p { margin: 0 0 1em; }
   body::before, .nav, .footer, .no-print { display: none !important; }
   body { background: #fff; }
 }
+
+/* ==========================================================================
+   Harmonisation avec le logo (tuile CA/SA) — remplace les accents « catalogue 1965 »
+   Principes : vert forêt + crème + rouille ; tuiles carrées arrondies (9 px) ;
+   étiquettes en capitales espacées comme « ATELIER » ; didone (Playfair) pour les titres.
+   ========================================================================== */
+:root {
+  --mustard: #d4b282;          /* sable : soulignés et repères discrets */
+  --teal: #2c4036;             /* forêt claire */
+  --sky: #ddd6c6;              /* pierre */
+  --f-mono: "Instrument Sans", -apple-system, "Segoe UI", sans-serif;
+  --r-tile: 9px;
+}
+
+/* Étiquettes : capitales espacées, comme ATELIER */
+.kicker { font-family: var(--f-body); font-weight: 600; font-size: 11px; letter-spacing: .32em; color: var(--tangerine); }
+.kicker::before { background: var(--tangerine); width: 28px; }
+.section--ink .kicker { color: var(--mustard); }
+.section--ink .kicker::before { background: var(--mustard); }
+.tag { font-weight: 600; letter-spacing: .14em; border-radius: 6px; }
+
+/* Numéro de section = tuile, comme le monogramme */
+.sec-head__num {
+  width: 64px; height: 64px; border-radius: var(--r-tile);
+  display: grid; place-items: center;
+  background: var(--forest); color: var(--paper);
+  font-style: normal; font-weight: 800; font-size: 26px; letter-spacing: -0.04em;
+}
+.section--ink .sec-head__num { background: var(--paper); color: var(--forest); }
+.sec-head__rule { height: 1px; }
+
+/* Sceau (remplace l'éclat rétro) : tuile inclinée, sans rotation continue */
+.burst {
+  clip-path: none; animation: none;
+  border-radius: 14px;
+  background: var(--forest); color: var(--paper);
+  transform: rotate(-6deg);
+  box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px var(--forest);
+  font-size: calc(var(--size) * 0.16);
+}
+.burst > span { animation: none; padding: 12%; }
+.section--ink .burst { background: var(--tangerine); box-shadow: 0 0 0 4px var(--forest), 0 0 0 5px var(--tangerine); }
+
+/* Filets : rouille puis forêt (au lieu de 4 couleurs) */
+.stripes span:nth-child(1) { background: var(--tangerine); flex: 1; }
+.stripes span:nth-child(2), .stripes span:nth-child(3), .stripes span:nth-child(4) { background: var(--forest); flex: 1; }
+.stripes { height: 6px; }
+.stripes--thin { height: 3px; }
+.footer .stripes span:nth-child(n+2) { background: var(--tangerine); }
+
+/* Boutons : forêt par défaut, rouille pour l'action principale */
+.btn { --bg: var(--forest); border-radius: 10px; letter-spacing: .01em; }
+.btn--accent { --bg: var(--tangerine); }
+.btn--ghost { --bg: transparent; }
+.btn--ghost:hover { --bg: var(--forest); --fg: var(--paper); }
+.tag--solid { background: var(--forest); border-color: var(--forest); }
+.tag--mustard { background: var(--mustard); border-color: var(--mustard); color: var(--ink); }
+
+/* Avis : cadre forêt, pictogramme en tuile */
+.notice {
+  background: var(--white);
+  border: 1.5px solid var(--forest);
+  box-shadow: 6px 6px 0 var(--forest);
+}
+.notice__icon { border-radius: var(--r-tile); background: var(--forest); color: var(--paper); }
+
+/* Libellé vertical réutilisable (écho de « ATELIER ») */
+.vlabel {
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  font-family: var(--f-body); font-weight: 600; font-size: 11px;
+  letter-spacing: .42em; text-transform: uppercase; color: var(--ink-3);
+}
+
+::selection { background: var(--forest); color: var(--paper); }
+:focus-visible { outline-color: var(--tangerine); }
+.nav { background: rgba(241, 233, 220, 0.82); }

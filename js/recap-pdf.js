@@ -77,7 +77,7 @@
     const font = (f, st, size) => { doc.setFont(f, st); doc.setFontSize(size); };
 
     function stripes(top, h) {
-      const cols = [COL.tangerine, COL.mustard, COL.avocado, COL.teal];
+      const cols = [COL.tangerine, COL.forest, COL.forest, COL.forest];
       const w = W / cols.length;
       cols.forEach((c, i) => { color(c, "fill"); doc.rect(i * w, top, w + 0.5, h, "F"); });
     }
@@ -133,7 +133,7 @@
 
     // ---------- Sections ----------
     m.sections.forEach((sec) => {
-      const tone = TONE[sec.tone] || COL.ink;
+      const tone = COL.tangerine; // numéros en rouille, comme le site
       ensure(54);
       font("times", "italic", 22); color(tone);
       const num = String(sec.n).padStart(2, "0");
@@ -195,8 +195,8 @@
     ensure(boxH + 10);
     color([246, 236, 214], "fill"); color(COL.ink, "draw"); doc.setLineWidth(1);
     doc.roundedRect(M, y, W - 2 * M, boxH, 8, 8, "FD");
-    color(COL.mustard, "fill"); doc.circle(M + 18, y + 18, 8, "F");
-    font("helvetica", "bold", 10); color(COL.ink); doc.text("!", M + 16.6, y + 21.5);
+    color(COL.forest, "fill"); doc.roundedRect(M + 10, y + 10, 16, 16, 3, 3, "F");
+    font("helvetica", "bold", 10); color(COL.paper); doc.text("!", M + 16.6, y + 21.5); color(COL.ink);
     doc.text(clean("À vérifier avec votre municipalité"), M + 34, y + 21);
     font("helvetica", "normal", 9.5); color(COL.ink2);
     doc.text(avis, M + 34, y + 36);

@@ -322,3 +322,14 @@ html.has-dlg { overflow: hidden; }
 @media print {
   .filters, .plan-dlg__close, .plan-dlg__nav { display: none !important; }
 }
+
+/* ===== Harmonisation avec le logo ===== */
+.chip--theme[aria-pressed="true"] { background: var(--forest); border-color: var(--forest); }
+.cat-count, .filters__count { background: var(--forest); color: var(--paper); }
+.cat-cta { background: var(--forest); border-radius: 14px; }
+.cat-cta::before { background: linear-gradient(90deg, var(--tangerine) 0 25%, rgba(241,233,220,.25) 25%) !important; }
+.chip { border-radius: 8px; }
+.chip[aria-pressed="true"] { background: var(--forest); border-color: var(--forest); }
+.plan-card, .plan-dlg { border-radius: 16px; }
+.plan-card__burst { background: var(--tangerine); color: var(--white); box-shadow: 0 0 0 3px var(--white), 0 0 0 4px var(--tangerine); }
+.plan-card__num, .plan-dlg__num { font-style: normal; font-weight: 800; letter-spacing: -0.04em; }

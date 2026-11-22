@@ -425,3 +425,7 @@ textarea.fm-input { resize: vertical; min-height: 96px; line-height: 1.5; }
   .fm-fiche__sec { page-break-inside: avoid; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* ===== Harmonisation avec le logo ===== */
+[data-tone], [data-tone="tangerine"], [data-tone="mustard"], [data-tone="avocado"], [data-tone="teal"] { --tone: var(--forest); --tone-fg: var(--paper); }
+.fm-sec__num, [data-tone="mustard"] .fm-sec__num, .fm-fiche__num, [data-tone="mustard"] .fm-fiche__num { color: var(--tangerine); font-style: normal; font-weight: 800; letter-spacing: -0.04em; }
