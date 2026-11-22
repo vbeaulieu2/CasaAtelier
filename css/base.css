@@ -498,3 +498,10 @@ p { margin: 0 0 1em; }
 ::selection { background: var(--forest); color: var(--paper); }
 :focus-visible { outline-color: var(--tangerine); }
 .nav { background: rgba(241, 233, 220, 0.82); }
+
+/* Bouton « Démarrer mon projet » du menu : texte crème sur rouille, survol vert forêt (comme la tuile du logo) */
+.nav__links a.btn,
+.nav__links a.btn:hover,
+.nav__links a.btn[aria-current="page"] { color: var(--white); font-weight: 600; }
+.nav__links a.btn { background: var(--tangerine); border-color: var(--tangerine); padding: 0 18px; }
+.nav__links a.btn:hover { background: var(--forest); border-color: var(--forest); }
