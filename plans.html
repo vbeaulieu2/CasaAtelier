@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="fr-CA" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Non indexable pour le moment : retirer cette ligne au lancement -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Plans prêts à bâtir — Casa Atelier</title>
+  <meta name="description" content="Catalogue de plans de maisons neuves prêts à bâtir et modifiables : farmhouse, scandinave, chalet, plain-pied. Victoriaville et Centre-du-Québec.">
+  <meta name="theme-color" content="#f1e9dc">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/plans.css">
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <!-- EN-TÊTE COMMUN : recopier tel quel ; mettre aria-current="page" sur le lien actif -->
+  <header class="nav" role="banner">
+    <div class="wrap nav__inner">
+      <a class="brand" href="index.html" aria-label="Casa Atelier — accueil">
+        <span class="brand__word">casa</span>
+        <span class="brand__sub">Atelier</span>
+      </a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span></button>
+      <ul class="nav__links" id="menu">
+        <li><a href="plans.html" aria-current="page">Plans prêts à bâtir</a></li>
+        <li><a href="sur-mesure.html">Sur mesure</a></li>
+        <li><a href="index.html#soleil">Ensoleillement</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li class="nav__cta"><a class="btn btn--sm btn--accent" href="sur-mesure.html">Démarrer mon projet</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- En-tête de catalogue -->
+    <section class="page-head cat-head">
+      <div class="wrap cat-head__inner">
+        <div class="cat-head__text">
+          <span class="kicker reveal">Catalogue · Édition 2026</span>
+          <h1 class="reveal" data-delay="1">Des plans prêts à bâtir. <em class="italic">Et à rendre vôtres.</em></h1>
+          <p class="lede reveal" data-delay="2">Chaque modèle se modifie : miroir, agrandissement, garage, sous-sol, fenêtres.</p>
+        </div>
+        <div class="burst cat-head__burst reveal" data-delay="3" aria-hidden="true"><span>Modi&shy;fiables!</span></div>
+      </div>
+      <div class="wrap">
+        <div class="stripes stripes--short reveal" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      </div>
+    </section>
+
+    <!-- Filtres -->
+    <div class="filters" id="filtres">
+      <div class="wrap filters__inner">
+        <form class="filters__form" aria-label="Filtrer les modèles" onsubmit="return false">
+          <div class="filters__scroll">
+            <fieldset class="fgroup" data-key="ch">
+              <legend class="fgroup__label">Chambres</legend>
+              <div class="chips">
+                <button type="button" class="chip" data-val="" aria-pressed="true">Toutes</button>
+                <button type="button" class="chip" data-val="2" aria-pressed="false">2</button>
+                <button type="button" class="chip" data-val="3" aria-pressed="false">3</button>
+                <button type="button" class="chip" data-val="4" aria-pressed="false">4+</button>
+              </div>
+            </fieldset>
+            <fieldset class="fgroup" data-key="et">
+              <legend class="fgroup__label">Étages</legend>
+              <div class="chips">
+                <button type="button" class="chip" data-val="" aria-pressed="true">Tous</button>
+                <button type="button" class="chip" data-val="1" aria-pressed="false">Plain-pied</button>
+                <button type="button" class="chip" data-val="1.5" aria-pressed="false">1½</button>
+                <button type="button" class="chip" data-val="2" aria-pressed="false">2</button>
+              </div>
+            </fieldset>
+            <fieldset class="fgroup" data-key="pi">
+              <legend class="fgroup__label">Superficie</legend>
+              <div class="chips">
+                <button type="button" class="chip" data-val="" aria-pressed="true">Toutes</button>
+                <button type="button" class="chip" data-val="s" aria-pressed="false">&lt; 1 500 pi²</button>
+                <button type="button" class="chip" data-val="m" aria-pressed="false">1 500–2 000</button>
+                <button type="button" class="chip" data-val="l" aria-pressed="false">2 000 +</button>
+              </div>
+            </fieldset>
+            <fieldset class="fgroup" data-key="style">
+              <legend class="fgroup__label">Style</legend>
+              <div class="chips" id="chips-style">
+                <button type="button" class="chip" data-val="" aria-pressed="true">Tous</button>
+              </div>
+            </fieldset>
+            <fieldset class="fgroup" data-key="theme" data-multi>
+              <legend class="fgroup__label">Thèmes</legend>
+              <div class="chips" id="chips-theme"></div>
+            </fieldset>
+          </div>
+          <div class="filters__meta">
+            <output class="filters__count mono" id="compte" aria-live="polite">07 modèles</output>
+            <button type="button" class="filters__reset" id="reinit" hidden>Réinitialiser</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Grille -->
+    <section class="section section--tight cat-grid-sec" aria-label="Modèles">
+      <div class="wrap">
+        <ul class="cat-grid" id="grille" role="list"></ul>
+        <div class="cat-empty" id="vide" hidden>
+          <p class="cat-empty__big">Rien ne correspond… <em>pour l'instant.</em></p>
+          <p class="muted">Allégez les filtres, ou dessinons-la ensemble.</p>
+          <div class="row mt-2">
+            <button type="button" class="btn btn--ghost btn--sm" data-reset>Réinitialiser les filtres</button>
+            <a class="btn btn--accent btn--sm" href="sur-mesure.html">Plan sur mesure <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <noscript><p class="notice-js">Le catalogue a besoin de JavaScript pour s'afficher.</p></noscript>
+      </div>
+    </section>
+
+    <!-- Aucun modèle ne colle -->
+    <section class="section section--tight">
+      <div class="wrap">
+        <div class="cat-cta reveal">
+          <div class="cat-cta__text">
+            <span class="kicker">Sur mesure</span>
+            <h2>Aucun modèle ne colle? <em class="italic">On part d'une feuille blanche.</em></h2>
+            <p>Votre terrain, votre budget, votre façon de vivre.</p>
+          </div>
+          <a class="btn btn--accent" href="sur-mesure.html">Démarrer mon plan <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+
+        <aside class="notice mt-4 reveal" aria-label="Architecte et ingénieur">
+          <span class="notice__icon" aria-hidden="true">!</span>
+          <div>
+            <h3>Architecte ou ingénieur?</h3>
+            <p>Selon la municipalité, des plans signés par un architecte ou un ingénieur peuvent être exigés. Nous ne fournissons pas ces services, mais on peut vous orienter. <a class="link" href="index.html#avis">En savoir plus</a></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Fiche détaillée -->
+  <dialog class="plan-dlg" id="fiche" aria-labelledby="fiche-titre">
+    <div class="plan-dlg__inner" id="fiche-contenu"></div>
+  </dialog>
+
+  <!-- PIED DE PAGE COMMUN : recopier tel quel -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <a class="lockup footer__big" href="index.html" aria-label="Casa Atelier — accueil">
+            <span class="lockup__word">casa</span>
+            <span class="lockup__sub">Atelier</span>
+            <span class="lockup__rule" aria-hidden="true"></span>
+            <span class="lockup__tag">Plans résidentiels et conception</span>
+          </a>
+        </div>
+        <div>
+          <h4>Plans</h4>
+          <ul>
+            <li><a href="plans.html">Plans prêts à bâtir</a></li>
+            <li><a href="sur-mesure.html">Plan sur mesure</a></li>
+            <li><a href="index.html#soleil">Étude d'ensoleillement</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Infos</h4>
+          <ul>
+            <li><a href="index.html#processus">Processus</a></li>
+            <li><a href="index.html#faq">Questions fréquentes</a></li>
+            <li><a href="index.html#avis">Architecte et ingénieur</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Joindre</h4>
+          <ul>
+            <li><a data-bt="telephone" href="#">819 604-1554</a></li>
+            <li><a data-bt="courriel" href="#">bonjour@casaatelier.ca</a></li>
+            <li><a data-bt="facebook" href="#" rel="noopener">Facebook</a> · <a data-bt="instagram" href="#" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__base">
+        <span>© <span data-bt="annee">2026</span> Casa Atelier · Plans résidentiels et conception · Victoriaville</span>
+        <span class="mono">Construction neuve résidentielle</span>
+      </div>
+    </div>
+    <div class="stripes stripes--thin" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/plans-data.js"></script>
+  <script src="js/facade.js"></script>
+  <script src="js/catalogue.js"></script>
+</body>
+</html>
